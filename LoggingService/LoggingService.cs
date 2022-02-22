@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LoggingEngine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,10 +20,12 @@ namespace LoggingService
 
         protected override void OnStart(string[] args)
         {
+            Logger.Start();
         }
 
         protected override void OnStop()
         {
+
         }
     }
 }
