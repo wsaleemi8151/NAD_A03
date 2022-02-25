@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+* FILE : Logger.cs
+* PROJECT : PROG2121-Windows and Mobile Programming - Assignment #3
+* PROGRAMMER : Waqar Ali Saleemi
+* FIRST VERSION : 2012-10-22
+* DESCRIPTION :
+* The functions in this file are used to implement logging machenism 
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -109,6 +118,15 @@ namespace LoggingEngine
             client.Close();
         }
 
+        /*
+        * FUNCTION : ParseMessage
+        *
+        * DESCRIPTION : This function is used to parse client message for logging
+        *
+        * PARAMETERS : string message    -   message send by client and received at server that need to be parsed
+        * 
+        * Returns : string   -       Parsed message
+        */
         static string ParseMessage(string message)
         {
             int facilityCode = 0;
@@ -143,6 +161,16 @@ namespace LoggingEngine
 
         }
 
+        /*
+        * FUNCTION : ParseSecurityCode
+        *
+        * DESCRIPTION : This function is used to parse security code to get the security level
+        *
+        * PARAMETERS :   int securityCode   
+        *                ref string securityCodeStr    -   pass by ref securityCodeStr to update security level
+        * 
+        * Returns : void
+        */
         static void ParseSecurityCode(int securityCode, ref string securityCodeStr)
         {
             switch (securityCode)
@@ -177,6 +205,17 @@ namespace LoggingEngine
             }
         }
 
+        /*
+        * FUNCTION : ParsePriorityCode
+        *
+        * DESCRIPTION : This function is used to parse security code to get the security level
+        *
+        * PARAMETERS :   int priorityCode   
+        *                ref int facilityCode
+        *                ref string facilityCodeStr
+        * 
+        * Returns : void
+        */
         static void ParsePriorityCode(int priorityCode, ref int facilityCode, ref string facilityCodeStr)
         {
             if ((priorityCode >= 0) && (priorityCode <= 7))
